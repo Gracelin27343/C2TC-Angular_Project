@@ -1,0 +1,28 @@
+<h2>Student Info Dashboard</h2>
+
+<!-- Two-way binding to edit student name -->
+<label>Name: </label>
+<input [(ngModel)]="student.name" />
+
+<!-- Interpolation for displaying details -->
+<p>Course: {{ student.course }}</p>
+<p>Age: {{ student.age }}</p>
+
+<!-- Property binding without currency pipe -->
+<p [innerText]="'Fees: ' + student.fees + ' INR'"></p>
+
+<!-- Joining date as plain string (no date pipe) -->
+<p>Joining Date: {{ student.joiningDate }}</p>
+
+<!-- Attribute Directive for status -->
+<p [style.color]="student.isActive ? 'green' : 'red'">
+  Status: {{ student.isActive ? 'Active' : 'Inactive' }}
+</p>
+
+<!-- Event binding to toggle status -->
+<button (click)="toggleStatus()">Toggle Status</button>
+
+<!-- Structural Directive *ngIf -->
+<div *ngIf="student.isActive">
+  <p>The student is currently active in the course.</p>
+</div>
